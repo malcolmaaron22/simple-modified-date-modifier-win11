@@ -2,9 +2,10 @@
 Tired of files missing every now and then without you knowing by System Account? Change in bulk of any files and folders modified date within designated path in Windows 11! As the countdown depend on the last modified date + 3Y. 
 ### Reset OneDrive "Date Modified" for Files & Folders (Windows)
 This **combined guide** consolidates both approaches into a **single, reusable reference** suitable for saving in your **Copilot Notebook**:
-- **Direct PowerShell commands** (quick, ad‑hoc use)
-- **Interactive PowerShell (.ps1) script** (safe, repeatable SOP)
-- **Easiest Way, Done For You** Relate to method 2, I've already created the ps1 file for you, just download from the main branch, then right click on the file and click "Run on PowerShell", then follow the instruction 🙂
+- **1. Direct PowerShell commands** (quick, ad‑hoc use)
+- **2. Interactive PowerShell (.ps1) script** (safe, repeatable SOP)
+- **3. Easiest Way, Done For You** Relate to method 2, I've already created the ps1 file for you in this GitHub, just download from the main branch [Click the ps1 file, then download button on the right], then, on your computer, right click, go Properties, click unblock then click ok. Then right click again on the file and click "Run on PowerShell", then follow the instruction.
+
 All methods are **OneDrive‑safe when used correctly** and do **not modify file contents**.
 ### ⚠️ Mandatory OneDrive Requirement (Non‑Negotiable)
 **Before running _any_ command or script:**
