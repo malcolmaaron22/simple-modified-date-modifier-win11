@@ -1,10 +1,15 @@
 # simple-modified-date-modifier-win11
-Tired of files missing every now and then without you knowing by System Account? Change in bulk of any files and folders modified date within designated path in Windows 11! As the countdown depend on the last modified date + 3Y. 
+😔 Tired of files missing every now and then without you knowing by System Account?
+
+😧 Just realized that your company's NRD policy is also applicable to your OneDrive?
+
+Change in ✨**BULK**✨ of any files and folders modified date within designated path in Windows 11 within 2 minutes! As the NRD countdown depend on the last modified date + 3Y, hopefully this ease your troubled mind of the missing files situation. 😉
+
 ### Reset OneDrive "Date Modified" for Files & Folders (Windows)
-This **combined guide** consolidates both approaches into a **single, reusable reference** suitable for saving in your **Copilot Notebook**:
-- **1. Direct PowerShell commands** (quick, ad‑hoc use)
-- **2. Interactive PowerShell (.ps1) script** (safe, repeatable SOP)
-- **3. Easiest Way, Done For You** Relate to method 2, I've already created the ps1 file for you in this GitHub, just download from the main branch [Click the ps1 file, then download button on the right], then, on your computer, right click, go Properties, click unblock then click ok. Then right click again on the file and click "Run on PowerShell", then follow the instruction.
+Few methods:
+- **1. Download, Unblock and Run** (quickest)
+- **2. Direct PowerShell commands** (quick, ad‑hoc use)
+- **3. Interactive PowerShell (.ps1) script** (safe, repeatable SOP)
 
 All methods are **OneDrive‑safe when used correctly** and do **not modify file contents**.
 ### ⚠️ Mandatory OneDrive Requirement (Non‑Negotiable)
@@ -14,7 +19,17 @@ All methods are **OneDrive‑safe when used correctly** and do **not modify file
   - Blue syncing arrows
   - Red error icons
 If OneDrive is still syncing, it **will back‑sync old cloud metadata** and **undo your timestamp changes**.
-### PART A — Quick PowerShell Commands (Files + Folders)
+
+### METHOD 1 - Download, Unblock and Run
+Relate to method 3, simplified, I've already created the ps1 file for you in this GitHub
+#### 1️⃣ Download
+Just download from the main branch here: [Reset-ModifiedDate.ps1](Reset-ModifiedDate.ps1) (Click download button on the right, it's next to copy and raw), 
+#### 2️⃣ Unblock
+Onced saved on your computer, right click on the file, go to Properties,in General, under Security below, click unblock then click Apply.
+#### 3️⃣ Run
+Then right click again on the file and click "Run on PowerShell", then follow the instruction.
+
+### Method 2 — Direct PowerShell Commands (Files + Folders)
 Use this when you just need a **one‑off reset** and don’t need prompts or reusability.
 #### 1️⃣ Open PowerShell
 You can open PowerShell from **any location** (path does not matter).
@@ -50,7 +65,8 @@ Get-ChildItem "C:\Users\M.VincentBuyun\OneDrive - Shell\01_INBOX" -Recurse -Forc
 - Right‑click any file or folder → **Properties**
 - Confirm **Date modified** is updated
 - Ensure OneDrive status remains **green**
-### PART B — Interactive PowerShell Script (Recommended SOP)
+- 
+### Method 3 — Interactive PowerShell Script (Recommended SOP)
 Use this when you want a **safe, reusable, and guided** solution.
 #### 1️⃣ Create the .ps1 Script
 - Open **Notepad**
@@ -144,4 +160,8 @@ powershell -ExecutionPolicy Bypass -File "C:\Users\M.VincentBuyun\OneDrive - She
 ### Final Notes
 - Wait for green checkmarks
 - Prefer the script for repeatable SOP
+
+### Tips
+- You can create cmd from the ps1 if desired.
+- Automate this every 2.5Y PM via PowerAutomate to run the script.
 
