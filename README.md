@@ -14,12 +14,17 @@ Few methods:
 All methods are **OneDrive‑safe when used correctly** and do **not modify file contents**.
 ### ⚠️ Mandatory OneDrive Requirement (Non‑Negotiable)
 **Before running _any_ command or script:**
-- ✅ **ALL files and folders must show GREEN checkmarks** in File Explorer
+- ✅ **ALL files and folders must show [GREEN](https://www.youtube.com/watch?v=wZykMg1ytaI&pp=ygUfaG93IHRvIGtlZXAgZ3JlZW4gdGljayBvbmVkcml2ZQ%3D%3D) checkmarks** in File Explorer
+   - Right click on selected folders and click "Always Keep on Device"
+
 - ❌ Do **NOT** proceed if you see:
   - Blue syncing arrows
   - Red error icons
 If OneDrive is still syncing, it **will back‑sync old cloud metadata** and **undo your timestamp changes**.
 
+<details>
+<summary> METHOD 1 </summary>
+  
 ### METHOD 1 - Download, Unblock and Run
 Relate to method 3, simplified, I've already created the ps1 file for you in this GitHub
 #### 1️⃣ Download
@@ -28,6 +33,11 @@ Just download from the main branch here: [Reset-ModifiedDate.ps1](Reset-Modified
 Onced saved on your computer, right click on the file, go to Properties,in General, under Security below, click unblock then click Apply.
 #### 3️⃣ Run
 Then right click again on the file and click "Run on PowerShell", then follow the instruction.
+
+</details>
+
+<details>
+<summary> METHOD 2 </summary>
 
 ### Method 2 — Direct PowerShell Commands (Files + Folders)
 Use this when you just need a **one‑off reset** and don’t need prompts or reusability.
@@ -65,7 +75,12 @@ Get-ChildItem "C:\Users\M.VincentBuyun\OneDrive - Shell\01_INBOX" -Recurse -Forc
 - Right‑click any file or folder → **Properties**
 - Confirm **Date modified** is updated
 - Ensure OneDrive status remains **green**
-- 
+
+</details>
+
+<details>
+<summary> METHOD 3 </summary>
+  
 ### Method 3 — Interactive PowerShell Script (Recommended SOP)
 Use this when you want a **safe, reusable, and guided** solution.
 #### 1️⃣ Create the .ps1 Script
@@ -157,6 +172,9 @@ One‑time run:
 ```
 powershell -ExecutionPolicy Bypass -File "C:\Users\M.VincentBuyun\OneDrive - Shell\Documents\Reset-ModifiedDate.ps1"
 ```
+
+</details>
+
 ### Final Notes
 - Wait for green checkmarks
 - Prefer the script for repeatable SOP
