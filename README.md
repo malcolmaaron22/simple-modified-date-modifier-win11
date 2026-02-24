@@ -6,10 +6,10 @@
 Change in ✨**BULK**✨ of any files and folders modified date within designated path in Windows 11 within 2 minutes! As the NRD countdown depend on the last modified date + 3Y, hopefully this ease your troubled mind of the missing files situation. 😉
 
 ### Reset OneDrive "Date Modified" for Files & Folders (Windows)
-Few methods:
-- **1. Download, Unblock and Run** (quickest)
+Few methods, click below to expand:
+- **1. Download and Run** (quickest)
 - **2. Direct PowerShell commands** (quick, ad‑hoc use)
-- **3. Interactive PowerShell (.ps1) script** (safe, repeatable SOP)
+- **3. Interactive PowerShell (.ps1) + cmd script** (safe, repeatable SOP)
 
 All methods are **OneDrive‑safe when used correctly** and do **not modify file contents**.
 ### ⚠️ Mandatory OneDrive Requirement (Non‑Negotiable)
@@ -22,17 +22,18 @@ All methods are **OneDrive‑safe when used correctly** and do **not modify file
   - Red error icons
 If OneDrive is still syncing, it **will back‑sync old cloud metadata** and **undo your timestamp changes**.
 
+
 <details>
 <summary> METHOD 1 </summary>
   
-### METHOD 1 - Download, Unblock and Run
+### METHOD 1 - Download and Run
 Relate to method 3, simplified, I've already created the ps1 file for you in this GitHub
 #### 1️⃣ Download
-Just download from the main branch here: [Reset-ModifiedDate.ps1](Reset-ModifiedDate.ps1) (Click download button on the right, it's next to copy and raw), 
-#### 2️⃣ Unblock
-Onced saved on your computer, right click on the file, go to Properties,in General, under Security below, click unblock then click Apply.
-#### 3️⃣ Run
-Then right click again on the file and click "Run on PowerShell", then follow the instruction.
+Just download from the [main branch](https://github.com/malcolmaaron22/simple-modified-date-modifier-win11/tree/main) (click Code and Download Zip) or here: [simple-modified-date-modifier-win11.zip](https://github.com/malcolmaaron22/simple-modified-date-modifier-win11/archive/refs/heads/main.zip), 
+#### 2️⃣ Run
+Double click on the Run-Reset-ModifiedDate.cmd file.
+#### Tips:
+Make sure both ps1 and cmd file are in the same folder all the time as the cmd file wrap and run the ps1.
 
 </details>
 
@@ -81,7 +82,7 @@ Get-ChildItem "C:\Users\M.VincentBuyun\OneDrive - Shell\01_INBOX" -Recurse -Forc
 <details>
 <summary> METHOD 3 </summary>
   
-### Method 3 — Interactive PowerShell Script (Recommended SOP)
+### Method 3 — Interactive PowerShell Script + CMD
 Use this when you want a **safe, reusable, and guided** solution.
 #### 1️⃣ Create the .ps1 Script
 - Open **Notepad**
@@ -159,27 +160,38 @@ if ($errors -gt 0) {
  Write-Host "Skipped/locked items: $errors (normal for system-managed files)" -ForegroundColor Yellow
 }
 ```
-### 3️⃣ Run the Script
+### 3️⃣ Create the wrapper cmd file
+Open a new **Notepad**
+copy paste this code below:
 ```
-cd "C:\Users\M.VincentBuyun\OneDrive - Shell\Documents"
-.\Reset-ModifiedDate.ps1
+@echo off
+setlocal
+
+REM ============================================================
+REM OneDrive-safe launcher for Reset-ModifiedDate.ps1
+REM Double-click to run, no PowerShell policy issues
+REM ============================================================
+
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File "%~dp0Reset-ModifiedDate.ps1"
+
+pause
 ```
-### 4️⃣ If You See "Running Scripts Is Disabled"
-```
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-```
-One‑time run:
-```
-powershell -ExecutionPolicy Bypass -File "C:\Users\M.VincentBuyun\OneDrive - Shell\Documents\Reset-ModifiedDate.ps1"
-```
+- Save as:
+  - **File name:** Run-Reset-ModifiedDate.cmd
+  - **Save as type:** All Files
+  - **Encoding:** UTF‑8
+  - Make sure the file location is the same as the existing ps1 file.
+
+### Why two files?
+* Powershell and CMD are two different languages with different functions
+* Powershell does the data parsing, object properties and user prompts
+* CMD help to bypasses execution policy and acts as a wrapper for the ps1 file. i.e. can double click to run
+
 
 </details>
 
 ### Final Notes
-- Wait for green checkmarks
-- Prefer the script for repeatable SOP
-
-### Tips
-- You can create cmd from the ps1 if desired.
-- Automate this every 2.5Y PM via PowerAutomate to run the script.
+- Wait for green checkmarks in OneDrive, no cloud icon else the changes will be reverted
+- This serves as a temporary mitigation. Original approach of the respective company's NRD policy should still be adhered. 
+- Utilization of Copilot was done for the vibe code of this approach. Review and Testing phase on the codes completed.
 
