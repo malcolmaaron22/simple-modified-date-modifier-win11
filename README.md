@@ -24,7 +24,8 @@ If OneDrive is still syncing, it **will back‑sync old cloud metadata** and **u
 
 
 <details>
-<summary> METHOD 1 </summary>
+<summary><strong>METHOD 1</strong></summary>
+
   
 ### METHOD 1 - Download and Run
 Relate to method 3, simplified, I've already created the ps1 file for you in this GitHub
@@ -38,7 +39,7 @@ Make sure both ps1 and cmd file are in the same folder all the time as the cmd f
 </details>
 
 <details>
-<summary> METHOD 2 </summary>
+<summary><strong>METHOD 2</strong></summary>
 
 ### Method 2 — Direct PowerShell Commands (Files + Folders)
 Use this when you just need a **one‑off reset** and don’t need prompts or reusability.
@@ -80,7 +81,7 @@ Get-ChildItem "C:\Users\M.VincentBuyun\OneDrive - Shell\01_INBOX" -Recurse -Forc
 </details>
 
 <details>
-<summary> METHOD 3 </summary>
+<summary><strong>METHOD 3</strong></summary>
   
 ### Method 3 — Interactive PowerShell Script + CMD
 Use this when you want a **safe, reusable, and guided** solution.
